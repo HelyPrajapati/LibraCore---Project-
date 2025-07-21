@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LibraCore-eLibrary | Welcome</title>
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5faff;
+  color: #333;
+  line-height: 1.6;
+}
+/* Navbar Styles */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00757a;
+  padding: 1rem;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight:bold;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  font-size: 20px;
+}
+
+/*responsive */
+.menu-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background-color: #00757a;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: none;
+    padding: 1rem 0;
+  }
+
+  .navbar ul li {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4rem 4rem;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: rgb(1, 68, 68);
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #008891;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+  background-color: rgb(2, 96, 96);
+}
+.btn.outline {
+  background: none;
+  border: 2px solid #008891;
+  color: #008891;
+}
+.hero-image img {
+  width: 600px;
+  border-radius: 12px;
+}
+.features {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #d0f4f4;
+}
+.features h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.card {
+  width:270px;
+  background-color: #fff;
+  padding: 1.2rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+/* Testimonials */
+.testimonials {
+  padding: 3rem 1rem;
+  background-color: #f0fbfc;
+  text-align: center;
+}
+.testimonials h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.testimonial-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.testimonial {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 300px;
+  font-style: italic;
+}
+.testimonial h4 {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #00757a;
+}
+
+/* CTA Section */
+.cta {
+  padding: 3rem 1rem;
+  background-color: #00757a;
+  color: white;
+  text-align: center;
+}
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.cta .btn {
+  background-color: #fff;
+  color: #00757a;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+/* Contact Us Section */
+.contact {
+  padding: 3rem 1rem;
+  background-color: #e6f7f9;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005f73;
+}
+.contact p {
+  margin-bottom: 2rem;
+  color: #333;
+}
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.contact-form .btn {
+  background-color: #008891;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.contact-form .btn:hover {
+  background-color: #00757a;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(1, 68, 68);
+  color: white;
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="navbar-container">
+    <div class="logo">📚 LibraCore - eLibrary</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html"> Home</a></li>
+        <li><a href="/frontend/login.html">Browse Books</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+
+<!--Hero section-->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to LibraCore - eLibrary</h1>
+      <p>Access thousands of books, journals, and study resources anytime, anywhere.Whether you're researching, reading, or revising — our digital shelves are always open to support your learning journey.</p>
+      <div class="buttons">
+        <a href="/frontend/login.html" class="btn">🔐 Login</a>
+        <a href="/frontend/signup.html" class="btn outline">📝 Signup</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/frontend/Project_Images/hero-img.png" alt="Library illustration" />
+    </div>
+  </section>  
+
+<!--Features-->
+  <section class="features">
+    <h2>Why Choose LibraCore?</h2>
+    <div class="cards">
+      <div class="card">📖 24x7 Access</div>
+      <div class="card">🔍 Smart Search</div>
+      <div class="card">📈 Track Issued Books</div>
+      <div class="card">🔒 Secure Login System</div>
+      <div class="card">📖 Real-Time Book Updates</div>
+    </div>
+  </section>
+
+<!--testimonials section-->
+<section class="testimonials" id="reviews">
+  <h2>What Our users Say</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial">
+  <p>"Thanks to this system, I can now access the library from my phone anytime. It's perfect for quick research and reference."</p>
+      <h4>— Priyanka, Student</h4>
+    </div>
+    <div class="testimonial">
+      <p>"The user interface is so smooth. Love the new features!"</p>
+      <h4>— Sakshi, Student</h4>
+    </div>
+    <div class="testimonial">
+  <p>"LibraryPro makes it so easy to find and issue books without wasting time in queues. The design is clean and fast!"</p>
+      <h4>— Herlin, Student</h4>
+    </div>
+    <div class="testimonial">
+  <p>"We used to depend on manual registers. With LibraryPro, everything is just a click away. Impressive work!"</p>
+      <h4>— Mr.Shah, Library Assistant</h4>
+    </div>
+  </div>
+</section>
+
+<!--Contact page-->
+<section class="contact" id="contact">
+  <h2>📩 Contact Us</h2>
+  <p>Have a question, suggestion, or issue? We're here to help!</p>
+  <form action="#" class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<!--Final call to get started-->
+<section class="cta">
+  <h2>Ready to Get Started?</h2>
+  <p>Join LibraryPro today and unlock thousands of books, anywhere, anytime.</p>
+  <a href="signup.html" class="btn">📝 Create Your Account</a>
+</section>
+
+<!--Footer section-->
+ <footer>
+    <p>&copy; 2025 LibraCore. All rights reserved.</p>
+  </footer>
+  
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar').querySelector('ul');
+
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
+

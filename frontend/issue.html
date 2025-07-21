@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Issue Book | LibraryPro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+     body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: #003333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color:#00757a;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      transition: color 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar ul li a:hover {
+      font-size: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004d4d;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: #006666;
+    }
+
+    input, select {
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #008080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #006666;
+    }
+
+    .preview {
+      margin-top: 20px;
+      background: #e6ffff;
+      padding: 20px;
+      border-radius: 10px;
+      color: #004d4d;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Navbar -->
+  <div class="navbar">
+    <h1>📚 LibraCore</h1>
+    <ul>
+      <li><a href="/frontend/index.html">Home</a></li>
+      <li><a href="/frontend/explore.html">Explore Books</a></li>
+      <li><a href="/frontend/returnbook.html">Return</a></li>
+      <li><a href="/frontend/student_profile.html">Profile</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>📚 Issue Book Form</h2>
+    <form id="issueForm" method="post" >
+      <div>
+        <label for="studentId">Student ID</label>
+        <input type="text" id="studentId" name="studentId" required>
+      </div>
+
+      <div>
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" name="studentName" required>
+      </div>
+
+      <div>
+        <label for="bookId">Book ID</label>
+        <input type="text" id="bookId" name="bookId" required>
+      </div>
+
+      <div>
+        <label for="bookTitle">Book Title</label>
+        <input type="text" id="bookTitle" name="bookTitle" required>
+      </div>
+
+      <div>
+        <label for="issueDate">Issue Date</label>
+        <input type="date" id="issueDate" name="issueDate" required>
+      </div>
+
+      <div>
+        <label for="returnDate">Return Date</label>
+        <input type="date" id="returnDate" name="returnDate" required>
+      </div>
+
+      <div class="full-width">
+        <button type="submit">Issue Book</button>
+      </div>
+    </form>
+
+    <div class="preview" id="previewBox" style="display:none;">
+      <h3>📦 Issue Preview:</h3>
+      <p><strong>Student:</strong> <span id="previewStudent"></span></p>
+      <p><strong>Book:</strong> <span id="previewBook"></span></p>
+      <p><strong>Issue Date:</strong> <span id="previewIssue"></span></p>
+      <p><strong>Return Date:</strong> <span id="previewReturn"></span></p>
+    </div>
+  </div>
+
+  <!-- JS -->
+ <script>
+  // Auto-calculate return date
+  document.getElementById("issueDate").addEventListener("change", function () {
+    const issueDate = new Date(this.value);
+    if (!isNaN(issueDate.getTime())) {
+      issueDate.setDate(issueDate.getDate() + 15);
+      const returnDateField = document.getElementById("returnDate");
+      const yyyy = issueDate.getFullYear();
+      const mm = String(issueDate.getMonth() + 1).padStart(2, '0');
+      const dd = String(issueDate.getDate()).padStart(2, '0');
+      returnDateField.value = `${yyyy}-${mm}-${dd}`;
+    }
+  });
+
+  // Submit and preview
+  document.getElementById("issueForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const studentId = document.getElementById('studentId').value;
+    const studentName = document.getElementById('studentName').value;
+    const bookId = document.getElementById('bookId').value;
+    const bookTitle = document.getElementById('bookTitle').value;
+    const issueDate = document.getElementById('issueDate').value;
+    const returnDate = document.getElementById('returnDate').value;
+
+    // Preview
+    document.getElementById('previewStudent').textContent = `${studentName} (${studentId})`;
+    document.getElementById('previewBook').textContent = `${bookTitle} (ID: ${bookId})`;
+    document.getElementById('previewIssue').textContent = issueDate;
+    document.getElementById('previewReturn').textContent = returnDate;
+    document.getElementById('previewBox').style.display = 'block';
+
+    // Send to backend
+    try {
+      const response = await fetch("http://localhost:5000/api/issue", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({studentId, studentName, bookId, bookTitle, issueDate, returnDate,})
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("✅ Book issued successfully!");
+      } else {
+        alert("❌ Failed to issue book: " + result.error);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("⚠️ Server error while issuing book.");
+    }
+  });
+</script>
+
+
+</body>
+</html>

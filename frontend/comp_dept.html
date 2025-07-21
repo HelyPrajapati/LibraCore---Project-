@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Engineering Resources</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f6f9f9;
+      color: #004d40;
+    }
+    /*NAVBAR*/
+    .navbar {
+      background-color:#00757a;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      transition: color 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar ul li a:hover {
+      font-size: 20px;
+    }
+
+    header {
+      color: teal;
+      padding: 20px;
+      font-size: 27px;
+      font-weight: bold;
+    }
+/*SEARCH BAR*/
+    .search-bar {
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 90%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px;
+    }
+
+    .filter-btn {
+      background-color: #01959f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .filter-btn:hover {
+      background-color: #00757a;
+    }
+  /*BOOK section*/
+    .section {
+      padding: 20px;
+    }
+
+     .section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #008080;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #00796b;  
+    }
+     
+    .section input:hover{
+      font-size: 18px;
+      transition: 0.1s ease;
+    }
+
+   .scroll-row {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 10px;
+    }
+    .scroll-row .item img:hover{
+      transition: 0.3s ease;
+      transform: scale(1.06);
+    }
+    .scroll-row button{
+      padding:5px;
+      color: #004d40;
+      font-weight: 600;
+      background-color: white;
+      border-radius: 15px;
+      border: 2px solid teal;
+      margin-left: 10px;
+    }
+    .scroll-row button:hover{
+      transition: 0.1s ease;
+      transform: scale(1.07);
+    }
+
+    .item {
+    text-align: center;
+    text-decoration: none;
+    color: #00695c;
+    transition: transform 0.3s;
+    }
+
+    .item img {
+    border-radius: 6px;
+    width: 12rem;
+    height: 240px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .item-title {
+    justify-content: space-evenly;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px; 
+    }
+  footer {
+    font-size: larger;
+    text-align: center;
+    padding: 0.1rem;
+    background-color: #00757a;
+    color: white;
+}
+  </style>
+</head>
+<body>
+
+<!--NAVBAR-->  
+<div class="navbar">
+    <h1>📚 LibraCore</h1>
+    <ul>
+      <li><a href="/frontend/index.html">Home</a></li>
+      <li><a href="/frontend/student_profile.html">Profile</a></li>
+      <li><a href="/frontend/explore.html">Explore Books</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </div>
+<header>Computer Department</header>  
+ <div class="search-bar">
+    <input type="text" placeholder="Search books, authors, notes...">
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn">All</button>
+    <button class="filter-btn">Year 1</button>
+    <button class="filter-btn">Year 2</button>
+    <button class="filter-btn">Year 3</button>
+    <button class="filter-btn">Year 4</button>
+  </div>
+
+<!-- BOOKS -->
+<div class="section">
+  <div class="section-title">📖 Books</div>
+  <div class="scroll-row">
+    <a href="book-dbms.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/IOT.jpeg" alt="IoT Book">
+      <div class="item-title">Internet of Things</div>
+    </a>
+    <a href="book-cn.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/TOC.jpg" alt="Theory of Computations Book">
+      <div class="item-title">Theory of Computations</div>
+    </a>
+    <a href="book-dbms.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/COA.jpg" alt="IoT Book">
+      <div class="item-title">Computer Architecture & Organization</div>
+    </a>
+    <a href="book-ai.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/AD_JAVA.jpg" alt="Advance Java Programming Book">
+      <div class="item-title">Advance Java Programming </div>
+    </a>
+    <a href="book-ai.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/AD_JAVA.jpg" alt="Advance Java Programming Book">
+      <div class="item-title">Advance Java Programming </div>
+    </a>
+    <a href="book-cn.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/DM.jpeg" alt="Theory of Computations Book">
+      <div class="item-title">Data Mining</div>
+    </a>
+    <a href="book-dbms.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/ETC.jpg" alt="IoT Book">
+      <div class="item-title">Effective Technical Communication</div>
+    </a>
+  </div><br><br>
+  <!--second panel of books -->
+  <div class="scroll-row">
+    <a href="/frontend/Project_Images/java_book.pdf" target="_blank" class="item">
+      <img src="/frontend/Project_Images/JAVA.jpg" alt="Theory of Computations Book">
+      <div class="item-title">Java Programming</div>
+    </a>
+    <a href="/frontend/Project_Images/ds_book.pdf" target="_blank" class="item">
+      <img src="/frontend/Project_Images/DS.jpg" alt="IoT Book">
+      <div class="item-title">Data Structures</div>
+    </a>
+    <a href="book-cn.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/SE.jpeg" alt="Theory of Computations Book">
+      <div class="item-title">Software Engineering</div>
+    </a>
+    <a href="book-cn.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/SE.jpeg" alt="Theory of Computations Book">
+      <div class="item-title">Software Engineering</div>
+    </a>
+    <a href="book-dbms.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/OS.jpg" alt="IoT Book">
+      <div class="item-title">Operating System</div>
+    </a>
+    <a href="book-ai.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/MPI.jpeg" alt="Advance Java Programming Book">
+      <div class="item-title">Microprocessor & Interfacing </div>
+    </a>
+    <a href="book-cn.html" target="_blank" class="item">
+      <img src="/frontend/Project_Images/DBMS.jpg" alt="Theory of Computations Book">
+      <div class="item-title">Database Management System</div>
+    </a>
+  </div>
+</div><br>
+
+<!-- NOTES SECTION https://img.icons8.com/color/452/pdf.png -->
+
+<div class="section">
+<div class="section-title">📖 Subject Notes</div>
+  <div class="scroll-row">
+    <a href="/frontend/Project_Images/DS_notes.pdf" target="_blank" class="item">
+      <img src="/frontend/Project_Images/DS_notes_ss.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    <a href="" target="_blank" class="item">
+      <img src="https://img.icons8.com/color/452/pdf.png" alt="Theory of Computations Book">
+      <div class="item-title">DS notes
+      <button>Get PDF</button>
+      </div>
+    </a>
+    
+  </div>
+</div><br>
+
+<!--Refrence books panel-->
+<div class="section">
+<div class="section-title">📖 Refrence Books</div>
+  <div class="scroll-row">
+    <a href="" target="_blank" class="item">
+      <img src="/frontend/Project_Images/AI_REF.jpg" alt="Theory of Computations Book">
+      <div class="item-title">Artificial Intelligence</div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/C++REF.jpg" alt="Advance Java Programming Book">
+      <div class="item-title">C++ Programming </div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/CS-forensic_REF.jpg" alt="Advance Java Programming Book">
+      <div class="item-title">Cyber Security & Digital Forensics</div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/Data_ref.jpg" alt="Theory of Computations Book">
+      <div class="item-title">Python Data Analysis</div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/OS_REF.jpg" alt="IoT Book">
+      <div class="item-title">Operating System Concepts</div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/DS_REF.jpg" alt="Advance Java Programming Book">
+      <div class="item-title">Data Structure </div>
+    </a>
+    <a href="#" target="_blank" class="item">
+      <img src="/frontend/Project_Images/SQL_REF.jpg" alt="Theory of Computations Book">
+      <div class="item-title">SQL</div>
+    </a>
+  </div>
+</div><br>
+
+  <footer>
+    <p>&copy; 2025 LibraCore. All rights reserved.</p>
+  </footer>
+  
+</body>
+</html>

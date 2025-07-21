@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | LibraryPro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5faff;
+  color: #333;
+}
+header {
+  background-color: #00757a;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  min-height: 80vh;
+}
+.login-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #00757a;
+}
+.login-box label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 500;
+}
+.login-box input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+ input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    
+.btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #008891;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #00757a;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+.signup-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+.signup-link a {
+  color: #008891;
+  text-decoration: none;
+  font-weight: 500;
+}
+.signup-link a:hover{
+  text-decoration: underline;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #00757a;
+  color: white;
+}
+
+/* Responsive for small devices */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1.5rem;
+  }
+  .login-box h2 {
+    font-size: 1.4rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">📚 LibraCore</div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-box">
+      <h2>Login to Your Account</h2>
+
+      <form action="/login" id="loginform" method="post">
+        <label for="name">👤 Username</label>
+        <input type="text" id="name" name="name" placeholder="Enter your username" required />
+
+         <label for="role">👤 Role</label>
+         <select id="role" name="role" style="color: #686767;">
+          <option value="">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Student">Student</option>
+        </select>
+
+        <label for="password">🔒 Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="signup.html">Signup here</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LibraCore. All rights reserved.</p>
+  </footer>
+
+  <!--script code begins-->
+  <script>
+  // Dummy user data
+  const users = [
+    { name: "Admin", password: "123", role: "Admin" },
+    { name: "admin", password: "123", role: "Admin" },
+    { name: "student", password: "123", role: "Student" },
+    { name: "hely", password: "123", role: "Student" }
+  ];
+
+  document.getElementById("loginform").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent actual form submission
+
+    const name = document.getElementById("name").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const role = document.getElementById("role").value;
+
+    if (!name || !password || !role) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const user = users.find(
+      u => u.name === name && u.password === password && u.role === role
+    );
+
+    if (user) {
+      alert(`Login successful as ${user.role}`);
+      // Redirect based on role
+      if (role === "Admin") {
+        window.location.href = "admin_panel.html";
+      } else if (role === "Student") {
+        window.location.href = "index.html";
+      }
+    } else {
+      alert("Invalid username, password, or role.");
+    }
+  });
+</script>
+
+  
+</body>
+</html>

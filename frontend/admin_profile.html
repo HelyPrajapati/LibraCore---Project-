@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Profile - LIBRACORE</title>
+  <style>
+
+     :root {
+      --teal: #008080;
+      --light-bg: #f6f9f9;
+      --dark-teal: #005f5f;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: #003333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color:#00757a;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+      color: white;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      transition: color 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar ul li a:hover {
+      font-size: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 128, 128, 0.1);
+      padding: 40px;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .profile-header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #009999;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h2 {
+      font-size: 28px;
+      color: #004d4d;
+      margin-bottom: 8px;
+    }
+
+    .profile-info p {
+      color: #333;
+      margin: 5px 0;
+      font-size: 15px;
+    }
+
+    .edit-btn {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #009999;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .edit-btn:hover {
+      background-color: #007777;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      background-color: #e0f7f7;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 128, 128, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #004d4d;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #006666;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-info {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <div class="navbar">
+    <h1>📚 LibraCore</h1>
+    <ul>
+      <li><a href="/frontend/admin_panel.html">Home</a></li>
+      <li><a href="/frontend/admin_manage_books.html">Manage Books</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </div>
+
+  <h1>Admin Profile</h1>
+
+  <div class="container">
+
+    <!-- Profile Section -->
+    <div class="profile-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin Profile">
+      <div class="profile-info">
+        <h2>Harsh Patel</h2>
+        <p><strong>Role:</strong> Library Administrator</p>
+        <p><strong>Email:</strong> admin@libracore.com</p>
+        <p><strong>Joined:</strong> March 2023</p>
+        <a href="#" class="edit-btn">Edit Profile</a>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">542</div>
+        <div class="stat-label">Books Managed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">127</div>
+        <div class="stat-label">Active Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Reports Generated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Pending Requests</div>
+      </div>
+    </div>
+
+  </div>
+  <!--Script code-->
+  <script>
+     
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "login.html"; // Replace with actual login page
+    }
+    </script>
+
+
+</body>
+</html>

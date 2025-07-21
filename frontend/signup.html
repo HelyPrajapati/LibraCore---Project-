@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup | LibraryPro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5faff;
+  color: #333;
+}
+header {
+  background-color: #00757a;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  min-height: 85vh;
+}
+.signup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 550px;
+}
+.signup-box h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #0a3d62;
+}
+.signup-box label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 500;
+}
+.signup-box input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+}
+.btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #008891;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #00757a;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+.login-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+.login-link a {
+  color: #008891;
+  text-decoration: none;
+  font-weight: 500;
+}
+.login-link a:hover{
+  text-decoration: underline;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #00757a;
+  color: white;
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+  .signup-box {
+    padding: 1.5rem;
+  }
+  .signup-box h2 {
+    font-size: 1.4rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">📚 LibraCore</div>
+  </header>
+
+  <main class="signup-container">
+    <div class="signup-box">
+      <h2>Create Your Account</h2>
+
+      <form action="/signup" id="signupForm" method="post">
+        <label for="name">👤 Username</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+        <label for="email">📧 Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="role">👤 Role</label>
+         <select id="role" name="role" style="color: #686767;">
+          <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+          <option value="Student">Student</option>
+        </select>
+
+        <label for="password">🔒 Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required />
+
+        <label for="confirm">🔒 Confirm Password</label>
+        <input type="password" id="confirmpw" name="confirmpw" placeholder="Re-enter password" required />
+
+        <label for="studentId">Student/Admin ID</label>
+      <input type="text" id="studentId" name="studentId" placeholder="e.g. 22CE014" />
+
+      <label for="department">Department</label>
+      <input type="text" id="department" name="department" placeholder="e.g. Computer Engineering" />
+
+        <button type="submit" class="btn">Signup</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LibraCore. All rights reserved.</p>
+  </footer>
+
+
+  <!--Script begins-->
+   <script>
+    document.getElementById("signupForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const role = document.getElementById("role").value;
+      const password = document.getElementById("password").value;
+      const confirmpw = document.getElementById("confirmpw").value;
+       const studentId = document.getElementById("studentId").value;
+      const department = document.getElementById("department").value;
+      if (password !== confirmpw) {
+        alert("Passwords do not match.");
+        return;
+      }
+      try {
+        const res = await fetch("http://localhost:5000/api/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, role, password, studentId, department })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert(data.message || "Signup successful!");
+          window.location.href = role === "Admin" ? "admin_panel.html" : "index.html";
+        } else {
+          alert(data.error || "Signup failed.");
+        }
+      } catch (err) {
+        alert("Server error.");
+        console.error(err);
+      }
+    });
+  </script>
+  
+</body>
+</html>
+
